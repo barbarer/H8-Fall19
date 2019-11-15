@@ -1,4 +1,4 @@
-import equest
+import requests
 import json
 import unittest
 import os
@@ -118,7 +118,7 @@ class TestHomework8(unittest.TestCase):
         
     def test_write_cache(self):
         dict = read_cache(self.cache)
-        write_cache(dict)
+        write_cache(self.cache,dict)
         dict2 = read_cache(self.cache)
         self.assertEqual(dict, dict2)
 
@@ -133,7 +133,7 @@ class TestHomework8(unittest.TestCase):
         dict_new = read_cache(self.cache)
         res = dict_new[url]
         self.assertEqual(res[1][0]['countryiso3code'], "ARB")
-                         ]
+    
     def test_country_dictionary(self):
         c_dict = country_dict()
         self.assertEqual(type(c_dict), type({}))
@@ -192,8 +192,8 @@ def main():
     print("------------")
 
     # You can comment this out to test with just the main, but be sure to uncomment it and test
-# with unittest as well.
-unittest.main(verbosity=2)
+    # with unittest as well.
+    unittest.main(verbosity=2)
     print("------------")
 
 
